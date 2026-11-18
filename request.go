@@ -36,7 +36,7 @@ func NewClient(clientID, clientSecret, store string) *Client {
 
 func (c *Client) Request(method string, url string, body interface{}, v interface{}) error {
 	// c.accessToken = new(string)
-	// *c.accessToken = "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"
+	// *c.accessToken = ""
 	if c.accessToken == nil || c.expiresAt == nil || time.Now().After(*c.expiresAt) {
 		if err := c.GetAccessToken(); err != nil {
 			return fmt.Errorf("failed to get access token: %w", err)
